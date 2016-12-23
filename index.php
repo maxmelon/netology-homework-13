@@ -105,7 +105,9 @@ $tasks->action();
             endif; ?></td>
         <td>
             <form method="post">
-                <button type="submit" value="<?php echo $task['id']?>" name="mark_as_done">Выполнить</button>
+                <?php if ($task['is_done'] !== 'Выполнено') : ?>
+                    <button type="submit" value="<?php echo $task['id']?>" name="mark_as_done">Выполнить</button>
+                <?php endif; ?>
                 <button type="submit" value="<?php echo $task['id']?>" name="change">Изменить</button>
                 <button type="submit" value="<?php echo $task['id']?>" name="delete">Удалить</button>
             </form>
